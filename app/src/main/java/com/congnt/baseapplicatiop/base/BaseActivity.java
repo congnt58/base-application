@@ -2,6 +2,7 @@ package com.congnt.baseapplicatiop.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -63,23 +64,22 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         View view = this.getCurrentFocus();
         if (view != null && view.getWindowToken() != null) {
             InputMethodManager inputMm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
-//            inputMm.hideSoftInputFromInputMethod(view.getWindowToken(), 0);
+            inputMm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
+            view.clearFocus();
         }
     }
 
-    public void showKeyboard(final EditText editText) {
-        editText.requestFocus();
-        editText.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                InputMethodManager inputMm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
-                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-            }
-        }, 200);
+    public void hideSoftKeyBoard(View v){
+        InputMethodManager ipMm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        ipMm.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
+    }
+
+    public void showSoftKeyBoard(View v){
+        if (v.requestFocus() && !this.isFinishing()) {
+            InputMethodManager ipMm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            ipMm.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT);
+        }
     }
 
     /**
