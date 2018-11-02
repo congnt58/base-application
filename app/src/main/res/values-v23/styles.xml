@@ -8,8 +8,12 @@
         <!--<item name="android:statusBarColor">@color/statusbar</item>-->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/balck</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
     </style>
 
+    <color name="balck">#000000</color>
 </resources>

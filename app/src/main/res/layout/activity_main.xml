@@ -1,49 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.MainActivity"
-    android:focusableInTouchMode="true"
-    android:fitsSystemWindows="true">
+    tools:context=".screen.MainActivity">
 
-    <EditText
-        android:id="@+id/edtTest"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Hello World!"
-        android:layout_centerHorizontal="true" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/edtTest"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/btnHiden"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Hiden"
-            android:layout_marginRight="10dp" />
-
-        <Button
-            android:id="@+id/btnShow"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Show"
-            android:layout_marginLeft="10dp" />
-    </LinearLayout>
-
-    <com.congnt.baseapplicatiop.progressbar.SpinKitView
-        android:layout_width="160dp"
-        android:layout_height="60dp"
-        android:layout_centerInParent="true"
-        app:SpinKit_Color="#509900"
-        app:SpinKit_Style="ThreeBounce" />
+        android:text="Hello World!"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
