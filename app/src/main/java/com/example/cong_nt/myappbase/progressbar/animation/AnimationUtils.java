@@ -3,7 +3,7 @@ package com.example.cong_nt.myappbase.progressbar.animation;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 
-import com.congnt.baseapplicatiop.progressbar.sprite.Sprite;
+import com.example.cong_nt.myappbase.progressbar.sprite.Sprite;
 
 /**
  * Created by ybq.

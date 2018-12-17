@@ -8,6 +8,7 @@ import android.view.View.VISIBLE
 import com.example.cong_nt.myappbase.R
 import com.example.cong_nt.myappbase.base.retrofit.InternetConnectionListener
 import com.example.cong_nt.myappbase.base.retrofit.RetrofitRxBuilder
+import com.example.cong_nt.myappbase.utils.L
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -21,7 +22,7 @@ class ActivityTwo : AppCompatActivity(), InternetConnectionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_two)
-        button.setOnClickListener({
+        button.setOnClickListener {
             RetrofitRxBuilder.getGgRequest(this)?.let { it ->
 
                 Log.e("ActivityTwo", "retrofit != null")
@@ -41,10 +42,10 @@ class ActivityTwo : AppCompatActivity(), InternetConnectionListener {
             } ?: run {
                 Log.e("ActivityTwo", "else if:  ${this}")
             }
-        })
-        btnCheckPhone.setOnClickListener({
+        }
+        btnCheckPhone.setOnClickListener {
             checkPhone()
-        })
+        }
     }
 
     private fun login(link: String) {
@@ -92,5 +93,11 @@ class ActivityTwo : AppCompatActivity(), InternetConnectionListener {
 
     override fun onInternetUnavailbale() {
         Log.e("ActivityTwo", "no internet")
+    }
+
+    fun printfVoid(): Int{
+        var a = 5
+        L.e("var  = $a")
+        return a
     }
 }
